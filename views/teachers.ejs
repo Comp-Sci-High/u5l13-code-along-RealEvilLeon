@@ -45,8 +45,26 @@
           <div class="teacher-card-content">
             <h2><%= teachers[i].name %></h2>
             <p><strong>Department:</strong> <%= teachers[i].department %></p>
+            
+            <form class="edit-teacher-form" onsubmit="updateTeacher(event, '<%= teachers[i]._id %>')">
+              <label>Update Name: </label>
+              <input type="text" class="edit-name" placeholder="<%= teachers[i].name %>" />
+              
+              <label>Update Department: </label>
+              <input type="text" class="edit-department" placeholder="<%= teachers[i].department %>" />
+              
+              <label>Update Image URL: </label>
+              <input type="text" class="edit-image" placeholder="<%= teachers[i].image %>" />
+              
+              <button type="submit">Update Teacher</button>
+            </form>
+            
             <!-- Add a button that calls a deleteTeacher function with their id passed as input -->
-             <button onclick="deleteTeacher('<%= teachers[i]._id %>')">Delete Teacher</button>
+            <button onclick="deleteTeacher('<%= teachers[i]._id %>')">Delete Teacher</button>
+
+
+             
+
           </div>
         </div>
       <% } %>

@@ -26,16 +26,16 @@
 
       <form>
         <label>Username: </label>
-        <input type="text" name="username" />
+        <input id="edit-name" type="text" name="username" />
 
         <label>Teacher: </label>
-        <input type="text" name="teacher" />
+        <input id="edit-teacher" type="text" name="teacher" />
 
         <label>Comment: </label>
-        <input type="text" name="comment" />
+        <input id="edit-comment" type="text" name="comment" />
 
         <label>Rating: </label>
-        <input type="number" name="rating" min="1" max="5" />
+        <input id="edit-rating" type="number" name="rating" min="1" max="5" />
 
         <button type="submit">Submit</button>
       </form>
@@ -57,8 +57,27 @@
             </div>
             <p><strong>Comment:</strong> <%= ratings[i].comment %></p>
             <p><em>By: <%= ratings[i].username %></em></p>
+
             <!-- Add a button that calls a deleteRating function with its id passed as input -->
-<button onclick="deleteRating('<%= ratings[i]._id %>')">Delete Teacher</button>
+ <form class="edit-teacher-form" onsubmit="updateRating(event, '<%= ratings[i]._id %>')">
+              <label>Update Name: </label>
+              <input type="text" class="edit-name" placeholder="<%= ratings[i].name %>" />
+              
+              <label>Update Teacher: </label>
+              <input type="text" class="edit-department" placeholder="<%= ratings[i].teacher %>" />
+
+              <label>Update Comment: </label>
+              <input type="text" class="edit-department" placeholder="<%= ratings[i].comment %>" />
+              
+              <label>Update Rating: </label>
+              <input type="text" class="edit-image" placeholder="<%= ratings[i].rating %>" />
+              
+              <button type="submit">Update Teacher</button>
+            </form>
+            
+            <!-- Add a button that calls a deleteTeacher function with their id passed as input -->
+            <button onclick="deleteRating('<%= ratings[i]._id %>')">Delete Rating</button>
+          </div>
           </div>
         </div>
       <% } %>
