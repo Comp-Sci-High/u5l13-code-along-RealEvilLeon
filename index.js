@@ -89,7 +89,7 @@ app.patch("/teachers/:id", async (req, res) =>{
 })
 
 app.patch("/ratings/:id", async (req, res) =>{
-  const updatedRating = await Rating.findOneAndUpdate(
+  const updatedRating = await Rating.findByIdAndUpdate(
     req.params.id,
     {
       username: req.body.username,
